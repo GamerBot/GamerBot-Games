@@ -16,4 +16,8 @@ class Games
   get_games: =>
     @robot.brain.get "gamerbot.games" ? {}
 
+  fetch_game: (ident) =>
+    games = @robot.brain.get "gamerbot.games"
+    return games[ident]
+
 module.exports = Games
