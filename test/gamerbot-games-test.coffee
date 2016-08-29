@@ -1,10 +1,34 @@
+Game = require("GamerBot-Game")
+
+class Destiny extends Game
+  lfg: ->
+    return true
+
+  events: ->
+    return {
+      CoO:
+        name: "Court of Oryx"
+        maxplayers: 3
+      CoE:
+        name: "Challenge of Elders"
+        maxplayers: 3
+      KFHM:
+        name: "King's Fall - Hard Mode"
+        maxplayers: 6
+    }
+
+  name: ->
+    return "Destiny"
+
+  platforms: ->
+    return ['PS4','XBONE']
+
 Helper = require('hubot-test-helper')
 helper = new Helper('../src/gamerbot-games.coffee')
 
 expect = require('chai').expect
 
 Games = require('../src/Games.coffee')
-Destiny = new Helper('src/destiny.coffee')
 
 describe 'gamerbot-games', ->
   beforeEach ->
