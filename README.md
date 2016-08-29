@@ -10,11 +10,11 @@ In hubot project repo, run:
 
 `npm install https://github.com/GamerBot/GamerBot-Games --save`
 
-Then add **gamerbot-games** to your `external-scripts.json`:
+Then add **GamerBot-Games** to your `external-scripts.json`:
 
 ```json
 [
-  "gamerbot-games"
+  "GamerBot-Games"
 ]
 ```
 
