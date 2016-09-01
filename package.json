@@ -18,6 +18,7 @@
   },
 
   "dependencies": {
+    "GamerBot-Game": "git+https://git@github.com/ssoriche/GamerBot-Game.git"
   },
 
   "peerDependencies": {
@@ -37,8 +38,7 @@
     "matchdep": "~0.3.0",
     "mocha": "^2.5.3",
     "sinon": "^1.13.0",
-    "sinon-chai": "^2.7.0",
-    "gamerbot-game": "git+https://git@github.com/ssoriche/GamerBot-Game.git"
+    "sinon-chai": "^2.7.0"
   },
 
   "main": "index.coffee",
