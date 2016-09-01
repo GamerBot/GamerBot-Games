@@ -2,7 +2,7 @@
 
 GamerBot Game Manager
 
-See [`src/gamerbot-games.coffee`](src/gamerbot-games.coffee) for full documentation.
+See [`src/GamerBot-Games.coffee`](src/GamerBot-Games.coffee) for full documentation.
 
 ## Installation
 

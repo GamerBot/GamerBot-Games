@@ -24,13 +24,13 @@ class Destiny extends Game
     return ['PS4','XBONE']
 
 Helper = require('hubot-test-helper')
-helper = new Helper('../src/gamerbot-games.coffee')
+helper = new Helper('../src/GamerBot-Games.coffee')
 
 expect = require('chai').expect
 
 Games = require('../src/Games.coffee')
 
-describe 'gamerbot-games', ->
+describe 'GamerBot-Games', ->
   beforeEach ->
     @room = helper.createRoom()
 

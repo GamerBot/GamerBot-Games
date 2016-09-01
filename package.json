@@ -18,7 +18,7 @@
   },
 
   "dependencies": {
-    "GamerBot-Game": "git+https://git@github.com/ssoriche/GamerBot-Game.git"
+    "GamerBot-Game": "git+https://git@github.com/GamerBot/GamerBot-Game.git"
   },
 
   "peerDependencies": {
