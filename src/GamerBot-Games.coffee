@@ -18,14 +18,15 @@
 module.exports = (robot) ->
   robot.on "gamerbot.games.register", (game) =>
     games = robot.brain.get "gamerbot.games"
-    games ?= {}
+    games = if games then games else {}
+
     games[game.ident] = game
     robot.brain.set "gamerbot.games", games
 
   robot.hear /^[\.!]games$/i, (msg) =>
     nick = msg.message.user.name.toLowerCase()
     games = robot.brain.get "gamerbot.games"
-    games ?= {}
+    games = if games then games else {}
 
     game_list = ""
     for game in Object.keys(games)
