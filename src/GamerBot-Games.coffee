@@ -31,4 +31,5 @@ module.exports = (robot) ->
     for game in Object.keys(games)
       game_list += "#{games[game].ident} ... #{games[game].name}\n"
 
-    msg.send "```Game List:\n#{game_list}"
+    msg.send "```Game List:\n#{game_list}```"
+    msg.finish()
