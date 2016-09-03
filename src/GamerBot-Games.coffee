@@ -15,22 +15,21 @@
 # Author:
 #   Shawn Sorichetti <ssoriche@gmail.com>
 
+Games = require('./Games.coffee')
+
 module.exports = (robot) ->
   robot.on "gamerbot.games.register", (game) =>
-    games = robot.brain.get "gamerbot.games"
-    games = if games then games else {}
-
-    games[game.ident] = game
-    robot.brain.set "gamerbot.games", games
+    games = new Games robot
+    games.register_game game
 
   robot.hear /^[\.!]games$/i, (msg) =>
     nick = msg.message.user.name.toLowerCase()
-    games = robot.brain.get "gamerbot.games"
-    games = if games then games else {}
+    games = new Games robot
+    games_list = games.get_games()
 
     game_list = ""
-    for game in Object.keys(games)
-      game_list += "#{games[game].ident} ... #{games[game].name}\n"
+    for game in Object.keys(games_list)
+      game_list += "#{games_list[game].ident} ... #{games_list[game].name}\n"
 
     msg.send "```Game List:\n#{game_list}```"
     msg.finish()
