@@ -42,7 +42,7 @@ describe 'GamerBot-Games', ->
     @room.user.say('bob','.games').then =>
       expect(@room.messages).to.eql [
         [ "bob",".games" ]
-        [ "hubot", "```Game List:\ndtg ... Destiny\n" ]
+        [ "hubot", "```Game List:\ndtg ... Destiny\n```" ]
       ]
 
   it 'fetches a game', ->
