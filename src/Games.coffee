@@ -9,7 +9,8 @@ class Games
     @games = {}
 
   register_game: (game) =>
-    games = @robot.brain.get "gamerbot.games" ? {}
+    games = @robot.brain.get "gamerbot.games"
+    games = if games then games else {}
     games[game.ident] = game
     @robot.brain.set "gamerbot.games", games
 
@@ -18,6 +19,7 @@ class Games
 
   fetch_game: (ident) =>
     games = @robot.brain.get "gamerbot.games"
+    games = if games then games else {}
     return games[ident]
 
 module.exports = Games
