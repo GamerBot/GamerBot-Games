@@ -11,6 +11,7 @@ class Games
     @games = {}
 
   register_game: (game) =>
+    return unless game.ident
     @games[game.ident] = game
 
   get_games: =>

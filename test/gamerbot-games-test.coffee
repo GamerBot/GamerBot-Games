@@ -47,6 +47,9 @@ describe 'GamerBot-Games', ->
         [ "bob",".games" ]
         [ "hubot", "```Game List:\ndtg ... Destiny\n```" ]
       ]
+    expect(games.get_games()).to.eql({ dtg: {ident: "dtg", name: "Destiny", builder: dtg.constructor }})
+    @room.robot.emit "gamerbot.games.register", ({ name: "Fake Destiny", builder: dtg.constructor })
+    expect(games.get_games()).to.eql({ dtg: {ident: "dtg", name: "Destiny", builder: dtg.constructor }})
 
   it 'fetches a game', ->
     dtg = new Destiny @room.robot
