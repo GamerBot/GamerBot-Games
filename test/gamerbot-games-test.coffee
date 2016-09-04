@@ -33,12 +33,15 @@ Games = require('../src/Games.coffee')
 describe 'GamerBot-Games', ->
   beforeEach ->
     @room = helper.createRoom()
+    @games = new Games @room.robot
 
   afterEach ->
     @room.destroy()
 
   it 'registers a new game', ->
-    @room.robot.emit "gamerbot.games.register", ({ ident: "dtg", name: "Destiny", class: Destiny })
+    dtg = new Destiny @room.robot
+
+    @room.robot.emit "gamerbot.games.register", ({ ident: "dtg", name: "Destiny", builder: dtg.constructor })
     @room.user.say('bob','.games').then =>
       expect(@room.messages).to.eql [
         [ "bob",".games" ]
@@ -46,7 +49,9 @@ describe 'GamerBot-Games', ->
       ]
 
   it 'fetches a game', ->
-    @room.robot.emit "gamerbot.games.register", ({ ident: "dtg", name: "Destiny", builder: new Destiny @room.robot })
-    games = new Games @room.robot
+    dtg = new Destiny @room.robot
+
+    @room.robot.emit "gamerbot.games.register", ({ ident: "dtg", name: "Destiny", builder: dtg.constructor })
+
     destiny = games.fetch_game('dtg').builder
-    expect(destiny.name()).to.eql('Destiny')
+    expect(destiny.name).to.eql('Destiny')
