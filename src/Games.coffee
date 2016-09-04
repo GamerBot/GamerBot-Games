@@ -4,22 +4,19 @@
 # Author:
 #   Shawn Sorichetti <ssoriche@gmail.com>
 
+util = require('util')
+
 class Games
   constructor: (@robot) ->
     @games = {}
 
   register_game: (game) =>
-    games = @robot.brain.get "gamerbot.games"
-    games = if games then games else {}
-    games[game.ident] = game
-    @robot.brain.set "gamerbot.games", games
+    @games[game.ident] = game
 
   get_games: =>
-    @robot.brain.get "gamerbot.games" ? {}
+    @games
 
   fetch_game: (ident) =>
-    games = @robot.brain.get "gamerbot.games"
-    games = if games then games else {}
-    return games[ident]
+    return @games[ident]
 
 module.exports = Games

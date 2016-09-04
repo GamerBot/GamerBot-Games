@@ -18,14 +18,14 @@
 Games = require('./Games.coffee')
 
 module.exports = (robot) ->
+  @games = new Games robot
+
   robot.on "gamerbot.games.register", (game) =>
-    games = new Games robot
-    games.register_game game
+    @games.register_game game
 
   robot.hear /^[\.!]games$/i, (msg) =>
     nick = msg.message.user.name.toLowerCase()
-    games = new Games robot
-    games_list = games.get_games()
+    games_list = @games.get_games()
 
     game_list = ""
     for game in Object.keys(games_list)
