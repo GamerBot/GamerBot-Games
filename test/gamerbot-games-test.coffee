@@ -55,3 +55,4 @@ describe 'GamerBot-Games', ->
 
     destiny = games.fetch_game('dtg').builder
     expect(destiny.name).to.eql('Destiny')
+    expect(games.get_games()).to.eql({ dtg: {ident: "dtg", name: "Destiny", builder: dtg.constructor }})
